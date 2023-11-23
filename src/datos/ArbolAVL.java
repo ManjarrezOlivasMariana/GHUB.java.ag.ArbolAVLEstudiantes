@@ -32,18 +32,7 @@ public class ArbolAVL  {
 	 */
 	
 	private Nodo rotacionII(Nodo n, Nodo n1) {
-		n.setIzquierdo(n1.getDerecho());
-		n1.setDerecho(n);
-		//Actualizacion de los factores de equilibrio
-		if(n1.getFe()==-1){ //Se cumple en la insercion
-			n.setFe(0);
-			n1.setFe(0);
-		}
-		else {
-			n.setFe(-1);
-			n1.setFe(+1);
-		}
-		return n1;
+		//Coloque aquí el código faltante
 	}
 	
 	
