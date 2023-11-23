@@ -44,19 +44,9 @@ public class ArbolAVL  {
 	 */
 	
 	private Nodo rotacionDD(Nodo n, Nodo n1) {
-		n.setDerecho(n1.getIzquierdo());
-		n1.setIzquierdo(n);
-		//Actualización de factores de equilibrio
-		if(n1.getFe()==+1) {// se cumple en la inserción
-			n.setFe(0);
-			n1.setFe(0);
-			
-		}
-		else {
-			n.setFe(+1);
-			n1.setFe(-1);
-		}
-		return n1;
+		//coloque código faltante
+		
+		
 	}
 	
 	
@@ -68,23 +58,7 @@ public class ArbolAVL  {
 	 */
 	
 	private Nodo rotacionID(Nodo n, Nodo n1) {
-		Nodo n2;
-		n2 = (Nodo)n1.getDerecho();
-		n.setIzquierdo(n2.getDerecho());
-		n2.setDerecho(n);
-		n1.setDerecho(n2.getIzquierdo());
-		n2.setIzquierdo(n1);
-		//Actualización de los factores de equillibrio
-		if(n2.getFe()==+1)
-			n1.setFe(-1);
-		else
-			n1.setFe(0);
-		if(n2.getFe()==-1)
-			n.setFe(1);
-		else
-			n.setFe(0);
-		n2.setFe(0);
-		return n2;
+		//Coloque código faltante
 		
 	}
 	
@@ -97,23 +71,7 @@ public class ArbolAVL  {
 	 */
 	
 	private Nodo rotacionDI(Nodo n, Nodo n1) {
-		Nodo n2;
-		n2 = (Nodo)n1.getIzquierdo();
-		n.setDerecho(n2.getIzquierdo());
-		n2.setIzquierdo(n);
-		n1.setIzquierdo(n2.getDerecho());
-		n2.setDerecho(n1);
-		//Actualización de los factores de equillibrio
-		if(n2.getFe()==+1)
-			n.setFe(-1);
-		else
-			n.setFe(0);
-		if(n2.getFe()==-1)
-			n1.setFe(1);
-		else
-			n1.setFe(0);
-		n2.setFe(0);
-		return n2;
+		//Coloque código faltante
 		
 	}
 	
@@ -379,61 +337,7 @@ public class ArbolAVL  {
 	
 	public Nodo borrarAVL(Nodo r, Comparable clave, Logical cambioAltura) 
 			throws Exception{
-		if(r==null) {
-			throw new Exception("Nodo no encontrado");
-		}
-		else if(clave.esMenor(r.getValor())) {
-			Nodo iz;
-			iz = borrarAVL((Nodo)r.getIzquierdo(),clave,cambioAltura);
-			r.setIzquierdo(iz);
-			if(cambioAltura.booleanValue())
-					r=equilibrar1(r,cambioAltura);
-			
-		}
-		else if(clave.esMayor(r.getValor())) {
-			Nodo dr;
-			dr = borrarAVL((Nodo)r.getDerecho(),clave,cambioAltura);
-			r.setDerecho(dr);
-			if(cambioAltura.booleanValue())
-					r=equilibrar2(r,cambioAltura);
-			
-		}
-		else //Nodo encontrado
-		{
-			Nodo q;
-			q=r; //Nodo a quitar del arbol
-			if(q.getIzquierdo()==null) {
-				r=(Nodo) q.getDerecho();
-				cambioAltura.setLogical(true);
-			}
-			else if(q.getDerecho()==null) {
-				r=(Nodo) q.getIzquierdo();
-				cambioAltura.setLogical(true);
-			
-			}
-			else {
-				//Tiene rama izquierda y rama derecha
-				
-				Nodo iz=null;
-				
-				
-				//if (((Nodo)r.getIzquierdo()).getDerecho()!=null) {
-					
-					
-				   iz = reemplazar(r,(Nodo)r.getIzquierdo(), cambioAltura);
-				   
-				  
-				//}
-				
-					
-				//System.out.println("Ya encontre el reemplazo"+iz.getValor());
-				r.setIzquierdo(iz);
-				if(cambioAltura.booleanValue())
-					r=equilibrar1(r,cambioAltura);
-			}
-			q=null;
-		}
-		return r;
+		//Coloque código faltante
 	}
 		
 	/**
@@ -474,29 +378,7 @@ public class ArbolAVL  {
 	 * @return
 	 */
 	private Nodo equilibrar1(Nodo n,Logical cambioAltura)  {
-		Nodo n1;
-		switch(n.getFe()) {
-		case -1:
-			n.setFe(0);
-			break;
-		case 0:
-			n.setFe(1);
-			cambioAltura.setLogical(false);
-			break;
-		case +1:
-			//Se aplica un tipo de rotación derecha
-			n1=(Nodo) n.getDerecho();
-		    if(n1.getFe()>=0) {
-		    	if(n1.getFe()==0)//La altura no vuelve a disminuir
-		    		cambioAltura.setLogical(false);
-		    	n=rotacionDD(n,n1);
-		    }
-		    else
-		    	n=rotacionDI(n,n1);
-		    break;
-			
-		}
-		return n;
+		//Coloque código faltante
 		
 	}
 	
@@ -507,30 +389,7 @@ public class ArbolAVL  {
 	 */
 	
 	private Nodo equilibrar2(Nodo n, Logical cambioAltura) {
-		Nodo n1;
-		switch(n.getFe()) {
-		case -1:
-			//Se aplica rotacion izquierda
-			n1 = (Nodo) n.getIzquierdo();
-			if(n1.getFe()<=0) {
-				if(n1.getFe()==0)
-					cambioAltura.setLogical(false);
-				n=rotacionDD(n,n1);
-			}
-			else
-				n=rotacionID(n,n1);
-			
-			break;
-		case 0:
-			n.setFe(-1);
-			cambioAltura.setLogical(false);
-			break;
-		case +1:
-			n.setFe(0);
-		    break;
-			
-		}
-		return n;
+		//Coloque código faltante
 		
 	}
 
