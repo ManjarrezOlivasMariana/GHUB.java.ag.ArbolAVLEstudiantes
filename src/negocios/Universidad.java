@@ -17,9 +17,17 @@ public class Universidad {
 	 * @param nombre
 	 * @throws Exception
 	 */
-	public void agregar_elementos(int id, String nombre) throws Exception {
+	public boolean agregar_elementos(int id, String nombre) throws Exception {
+		try {
 		
-		abo.insertar(new Estudiante(id, nombre));
+		   abo.insertar(new Estudiante(id, nombre));
+		   return true;
+		
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 		
 	}
 	/**
@@ -28,8 +36,15 @@ public class Universidad {
 	 * @param nombre
 	 * @throws Exception
 	 */
-	public void eliminar_elementos(int id, String nombre) throws Exception{
-		abo.eliminar(new Estudiante(id, nombre));
+	public boolean eliminar_elementos(int id, String nombre) throws Exception{
+		try {
+		   abo.eliminar(new Estudiante(id, nombre));
+		   return true;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 		
 	}
 	/**
@@ -44,27 +59,26 @@ public class Universidad {
 		else return false;
 		
 	}
-	public void recorrer_elementos() {
-		System.out.print("\nPreOrden:");
-		abo.preorden();
-		System.out.print("\nInOrden:");
-		abo.inorden();
-		System.out.print("\nPostOrden:");
-		abo.postorden();
-		System.out.print("\nNiveles:");
-		
-		System.out.print("\nJerárquico:\n");
-		BTreePrinter.printNode(abo.getRaiz());
+	public boolean recorrer_elementos() throws Exception{
+		try {
+			System.out.print("\nPreOrden:");
+			abo.preorden();
+			System.out.print("\nInOrden:");
+			abo.inorden();
+			System.out.print("\nPostOrden:");
+			abo.postorden();
+			System.out.print("\nNiveles:");
+			
+			System.out.print("\nJerárquico:\n");
+			BTreePrinter.printNode(abo.getRaiz());
+			return true;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 		
 	}
 	
 	
 }
-		
-	
-	
-
-
-
-
-

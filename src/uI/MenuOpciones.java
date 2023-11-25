@@ -28,9 +28,11 @@ public class MenuOpciones {
 			univ.agregar_elementos(id,nombre);
 			System.out.println("Estudiante Insertado con éxito");
 			
+			
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+			
 			
 		}
 		
@@ -54,9 +56,11 @@ public class MenuOpciones {
 			} while (!univ.buscar_elementos(id,nombre));
 		   univ.eliminar_elementos(id,nombre);
 		   System.out.println("Estudiante Eliminado con éxito");
+		   
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+			
 			
 		}
 		
@@ -75,15 +79,19 @@ public class MenuOpciones {
 			id = entrada.nextInt();
 			System.out.print("Introduce Nombre de Estudiantes  a buscar:");
 			nombre = entrada.next();
-			if (univ.buscar_elementos(id,nombre))
+			if (univ.buscar_elementos(id,nombre)) 
 				System.out.println("El Estudiante con ID  "+id+" Existe");
-			else
+				
+			else 
 				System.out.println("El Estudiante con ID"+id+" NO Existe!");
+				
+			
 				
 			
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+
 			
 		}
 		
@@ -97,8 +105,3 @@ public class MenuOpciones {
 	
 	
 }
-
-	
-
-	
-
