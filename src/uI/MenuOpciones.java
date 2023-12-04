@@ -7,7 +7,7 @@ import java.util.Scanner;
 import negocios.Universidad;
 
 
-public class MenuOpciones {
+public class MenuOpciones throws Exception {
 	static Scanner entrada = new  Scanner(System.in);
 	private Universidad univ = new Universidad();
 	/**
