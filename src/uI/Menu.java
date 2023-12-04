@@ -7,10 +7,10 @@ public class Menu {
 	
 	static MenuOpciones  iOpc = new MenuOpciones();
 	
-	public void lectura() {
+	public void lectura throws Exception() {
 		imprimirMenu();			
 	}
-	private static void imprimirMenu()  {
+	private static void imprimirMenu throws Exception()  {
 		while (true) {
 			System.out.println("\t************ MENU PRINCIPAL *************");
 			System.out.println("\t*  1. Agregar Estudiantes               *");
